@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-yarn add https://github.com/moltin/gatsby-theme-moltin
+yarn add @moltin/gatsby-theme-moltin
 ```
 
 ## How to use
@@ -18,6 +18,6 @@ __experimentalThemes: [
     options: {
       client_id: '...'
     }
-  }  
+  }
 ]
 ```

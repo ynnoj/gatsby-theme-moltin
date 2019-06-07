@@ -1,6 +1,10 @@
 # dependencies
 node_modules
 
+# gatsby files
+.cache
+public
+
 # misc
 .DS_Store
 package-lock.json
