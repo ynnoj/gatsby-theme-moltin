@@ -10,7 +10,7 @@
       "src": "example/package.json",
       "use": "@now/static-build",
       "config": {
-        "distDir": "example/public"
+        "distDir": "public"
       }
     }
   ],
