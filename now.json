@@ -1,0 +1,25 @@
+{
+  "alias": "gatsby-theme-moltin-example",
+  "build": {
+    "env": {
+      "MOLTIN_CLIENT_ID": "@gatsby-theme-moltin-example-moltin-client-id"
+    }
+  },
+  "builds": [
+    {
+      "src": "example/package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
+  "name": "gatsby-theme-moltin-example",
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/example"
+    }
+  ],
+  "version": 2
+}
