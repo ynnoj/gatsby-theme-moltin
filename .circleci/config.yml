@@ -16,8 +16,23 @@ jobs:
           paths:
             - node_modules
           key: gatsby-theme-moltin-{{ checksum "package.json" }}
+    release:
+      docker:
+        - image: circleci/node:latest
+      steps:
+        - checkout
+        - restore_cache:
+            keys:
+              - gatsby-theme-moltin-{{ checksum "package.json" }}
+        - run: npx semantic-release
 workflows:
   version: 2
   build_release:
     jobs:
       - build
+      - release:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
