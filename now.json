@@ -15,5 +15,11 @@
     }
   ],
   "name": "gatsby-theme-moltin-example",
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/example"
+    }
+  ],
   "version": 2
 }
