@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop"
+    "dev": "gatsby develop",
+    "now-build": "yarn run build",
+    "now-dev": "yarn run dev -p $PORT"
   },
   "dependencies": {
     "@moltin/gatsby-theme-moltin": "*",
