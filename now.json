@@ -1,8 +1,8 @@
 {
-  "alias": "gatsby-theme-moltin-example",
+  "alias": "gatsby-theme-moltin",
   "build": {
     "env": {
-      "MOLTIN_CLIENT_ID": "@gatsby-theme-moltin-example-moltin-client-id"
+      "MOLTIN_CLIENT_ID": "@gatsby-theme-moltin-moltin-client-id"
     }
   },
   "builds": [
@@ -14,7 +14,7 @@
       }
     }
   ],
-  "name": "gatsby-theme-moltin-example",
+  "name": "gatsby-theme-moltin",
   "routes": [
     {
       "src": "/(.*)",
