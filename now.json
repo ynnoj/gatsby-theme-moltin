@@ -17,8 +17,8 @@
   "name": "gatsby-theme-moltin-example",
   "routes": [
     {
-      "src": "/.*",
-      "dest": "/example"
+      "src": "/(.*)",
+      "dest": "/example/$1"
     }
   ],
   "version": 2
