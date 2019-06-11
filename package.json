@@ -3,5 +3,21 @@
   "workspaces": [
     "packages/*",
     "example"
-  ]
+  ],
+  "devDependencies": {
+    "semantic-release": "^15.13.12"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "packages/gatsby-theme-moltin"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }
 }
