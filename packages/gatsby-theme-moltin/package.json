@@ -28,5 +28,8 @@
   },
   "contributors": [
     "Jonathan Steele <jonathan@steele.pro> (https://steele.pro)"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
