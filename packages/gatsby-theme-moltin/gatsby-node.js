@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
   pages.data.allProducts.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: path,
+      path,
       component: require.resolve(`./src/templates/ProductPage.js`),
       context: {
         id,
