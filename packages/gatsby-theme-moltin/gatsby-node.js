@@ -31,6 +31,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
         }
       }
+      allCategories: allMoltinCategory {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
     }
   `)
 
@@ -41,6 +49,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       context: {
         id,
       },
+    })
+  })
+
+  pages.data.allCategories.edges.forEach(({ node: { id, slug } }) => {
+    createPage({
+      path: `/categories/${slug}`,
+      component: require.resolve(`./src/templates/CategoryPage.js`),
+      context: {
+        id
+      }
     })
   })
 }
