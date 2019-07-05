@@ -3,7 +3,7 @@ const path = require('path')
 exports.sourceNodes = ({ actions: { createTypes } }) => {
   createTypes(`
     type MoltinProduct implements Node {
-      pathSlug: String!
+      path: String!
     }
   `)
 }
@@ -13,7 +13,7 @@ exports.createResolvers = ({ createResolvers }, options) => {
 
   createResolvers({
     MoltinProduct: {
-      pathSlug: {
+      path: {
         resolve: source => path.join(basePath, 'products', source.slug),
       },
     },
@@ -27,16 +27,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         edges {
           node {
             id
-            pathSlug
+            path
           }
         }
       }
     }
   `)
 
-  pages.data.allProducts.edges.forEach(({ node: { id, pathSlug } }) => {
+  pages.data.allProducts.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: pathSlug,
+      path: path,
       component: require.resolve(`./src/templates/ProductPage.js`),
       context: {
         id,
