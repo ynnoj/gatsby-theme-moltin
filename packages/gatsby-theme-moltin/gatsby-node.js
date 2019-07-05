@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         edges {
           node {
             id
-            slug
+            path
           }
         }
       }
@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         edges {
           node {
             id
-            slug
+            path
           }
         }
       }
@@ -51,7 +51,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         edges {
           node {
             id
-            slug
+            path
           }
         }
       }
@@ -68,33 +68,33 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     })
   })
 
-  pages.data.allCategories.edges.forEach(({ node: { id, slug } }) => {
+  pages.data.allCategories.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: `/categories/${slug}`,
+      path,
       component: require.resolve(`./src/templates/CategoryPage.js`),
       context: {
-        id
-      }
+        id,
+      },
     })
   })
 
-  pages.data.allCollections.edges.forEach(({ node: { id, slug } }) => {
+  pages.data.allCollections.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: `/collections/${slug}`,
+      path,
       component: require.resolve(`./src/templates/CollectionPage.js`),
       context: {
-        id
-      }
+        id,
+      },
     })
   })
 
-  pages.data.allBrands.edges.forEach(({ node: { id, slug } }) => {
+  pages.data.allBrands.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: `/brands/${slug}`,
+      path,
       component: require.resolve(`./src/templates/BrandPage.js`),
       context: {
-        id
-      }
+        id,
+      },
     })
   })
 }
