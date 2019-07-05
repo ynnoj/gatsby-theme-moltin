@@ -5,6 +5,15 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
     type MoltinProduct implements Node {
       path: String!
     }
+    type MoltinCollection implements Node {
+      path: String!
+    }
+    type MoltinCategory implements Node {
+      path: String!
+    }
+    type MoltinBrand implements Node {
+      path: String!
+    }
   `)
 }
 
@@ -15,6 +24,21 @@ exports.createResolvers = ({ createResolvers }, options) => {
     MoltinProduct: {
       path: {
         resolve: source => path.join(basePath, 'products', source.slug),
+      },
+    },
+    MoltinCollection: {
+      path: {
+        resolve: source => path.join(basePath, 'collections', source.slug),
+      },
+    },
+    MoltinCategory: {
+      path: {
+        resolve: source => path.join(basePath, 'categories', source.slug),
+      },
+    },
+    MoltinBrand: {
+      path: {
+        resolve: source => path.join(basePath, 'brands', source.slug),
       },
     },
   })
