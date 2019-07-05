@@ -1,12 +1,13 @@
 require(`dotenv`).config()
 
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: `@moltin/gatsby-theme-moltin`,
       options: {
-        client_id: process.env.MOLTIN_CLIENT_ID
-      }
-    }
-  ]
+        client_id: process.env.MOLTIN_CLIENT_ID,
+        basePath: '/',
+      },
+    },
+  ],
 }
