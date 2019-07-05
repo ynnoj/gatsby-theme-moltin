@@ -1,3 +1,25 @@
+const path = require('path')
+
+exports.sourceNodes = ({ actions: { createTypes } }) => {
+  createTypes(`
+    type MoltinProduct implements Node {
+      path: String!
+    }
+  `)
+}
+
+exports.createResolvers = ({ createResolvers }, options) => {
+  const basePath = options.basePath || '/'
+
+  createResolvers({
+    MoltinProduct: {
+      path: {
+        resolve: source => path.join(basePath, 'products', source.slug),
+      },
+    },
+  })
+}
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const pages = await graphql(`
     {
@@ -5,20 +27,20 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         edges {
           node {
             id
-            slug
+            path
           }
         }
       }
     }
   `)
 
-  pages.data.allProducts.edges.forEach(({ node: { id, slug } }) => {
+  pages.data.allProducts.edges.forEach(({ node: { id, path } }) => {
     createPage({
-      path: `/products/${slug}`,
+      path,
       component: require.resolve(`./src/templates/ProductPage.js`),
       context: {
-        id
-      }
+        id,
+      },
     })
   })
 }

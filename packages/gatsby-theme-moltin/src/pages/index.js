@@ -15,6 +15,7 @@ export const query = graphql`
           id
           name
           slug
+          path
         }
       }
     }

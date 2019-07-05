@@ -17,17 +17,18 @@
     "gatsby-plugin-page-creator": "^2.0.13"
   },
   "devDependencies": {
-    "gatsby": "^2.8.5",
+    "gatsby": "^2.13.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "peerDependencies": {
-    "gatsby": "^2.8.5",
+    "gatsby": "^2.13.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "contributors": [
-    "Jonathan Steele <jonathan@steele.pro> (https://steele.pro)"
+    "Jonathan Steele <jonathan@steele.pro> (https://steele.pro)",
+    "Jamie Barton <jamie@notrab.dev> (https://notrab.dev)"
   ],
   "publishConfig": {
     "access": "public"

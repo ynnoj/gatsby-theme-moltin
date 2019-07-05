@@ -12,12 +12,13 @@ yarn add @moltin/gatsby-theme-moltin
 
 ```js
 // In your gatsby-config.js
-__experimentalThemes: [
+plugins: [
   {
     resolve: `@moltin/gatsby-theme-moltin`,
     options: {
-      client_id: '...'
-    }
-  }
+      client_id: '...',
+      basePath: '/', // basePath: '/store'
+    },
+  },
 ]
 ```
