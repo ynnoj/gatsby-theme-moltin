@@ -5,6 +5,15 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
     type MoltinProduct implements Node {
       path: String!
     }
+    type MoltinCollection implements Node {
+      path: String!
+    }
+    type MoltinCategory implements Node {
+      path: String!
+    }
+    type MoltinBrand implements Node {
+      path: String!
+    }
   `)
 }
 
@@ -15,6 +24,21 @@ exports.createResolvers = ({ createResolvers }, options) => {
     MoltinProduct: {
       path: {
         resolve: source => path.join(basePath, 'products', source.slug),
+      },
+    },
+    MoltinCollection: {
+      path: {
+        resolve: source => path.join(basePath, 'collections', source.slug),
+      },
+    },
+    MoltinCategory: {
+      path: {
+        resolve: source => path.join(basePath, 'categories', source.slug),
+      },
+    },
+    MoltinBrand: {
+      path: {
+        resolve: source => path.join(basePath, 'brands', source.slug),
       },
     },
   })
@@ -31,6 +55,30 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
         }
       }
+      allCategories: allMoltinCategory {
+        edges {
+          node {
+            id
+            path
+          }
+        }
+      }
+      allCollections: allMoltinCollection {
+        edges {
+          node {
+            id
+            path
+          }
+        }
+      }
+      allBrands: allMoltinBrand {
+        edges {
+          node {
+            id
+            path
+          }
+        }
+      }
     }
   `)
 
@@ -38,6 +86,36 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path,
       component: require.resolve(`./src/templates/ProductPage.js`),
+      context: {
+        id,
+      },
+    })
+  })
+
+  pages.data.allCategories.edges.forEach(({ node: { id, path } }) => {
+    createPage({
+      path,
+      component: require.resolve(`./src/templates/CategoryPage.js`),
+      context: {
+        id,
+      },
+    })
+  })
+
+  pages.data.allCollections.edges.forEach(({ node: { id, path } }) => {
+    createPage({
+      path,
+      component: require.resolve(`./src/templates/CollectionPage.js`),
+      context: {
+        id,
+      },
+    })
+  })
+
+  pages.data.allBrands.edges.forEach(({ node: { id, path } }) => {
+    createPage({
+      path,
+      component: require.resolve(`./src/templates/BrandPage.js`),
       context: {
         id,
       },
