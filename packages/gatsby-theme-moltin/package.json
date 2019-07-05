@@ -27,7 +27,8 @@
     "react-dom": "^16.8.6"
   },
   "contributors": [
-    "Jonathan Steele <jonathan@steele.pro> (https://steele.pro)"
+    "Jonathan Steele <jonathan@steele.pro> (https://steele.pro)",
+    "Jamie Barton <jamie@notrab.dev> (https://notrab.dev)"
   ],
   "publishConfig": {
     "access": "public"
