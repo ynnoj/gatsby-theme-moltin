@@ -31,6 +31,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
         }
       }
+      allCollections: allMoltinCollection {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
       allCategories: allMoltinCategory {
         edges {
           node {
@@ -56,6 +64,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path: `/categories/${slug}`,
       component: require.resolve(`./src/templates/CategoryPage.js`),
+      context: {
+        id
+      }
+    })
+  })
+
+  pages.data.allCollections.edges.forEach(({ node: { id, slug } }) => {
+    createPage({
+      path: `/collections/${slug}`,
+      component: require.resolve(`./src/templates/CollectionPage.js`),
       context: {
         id
       }
