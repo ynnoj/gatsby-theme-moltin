@@ -19,26 +19,32 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
 
 exports.createResolvers = ({ createResolvers }, options) => {
   const basePath = options.basePath || '/'
+  const {
+    productsPath = 'products',
+    collectionsPath = 'collections',
+    categoriesPath = 'categories',
+    brandsPath = 'brands',
+  } = options
 
   createResolvers({
     MoltinProduct: {
       path: {
-        resolve: source => path.join(basePath, 'products', source.slug),
+        resolve: source => path.join(basePath, productsPath, source.slug),
       },
     },
     MoltinCollection: {
       path: {
-        resolve: source => path.join(basePath, 'collections', source.slug),
+        resolve: source => path.join(basePath, collectionsPath, source.slug),
       },
     },
     MoltinCategory: {
       path: {
-        resolve: source => path.join(basePath, 'categories', source.slug),
+        resolve: source => path.join(basePath, categoriesPath, source.slug),
       },
     },
     MoltinBrand: {
       path: {
-        resolve: source => path.join(basePath, 'brands', source.slug),
+        resolve: source => path.join(basePath, brandsPath, source.slug),
       },
     },
   })
