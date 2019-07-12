@@ -5,10 +5,10 @@ exports.sourceNodes = ({ actions: { createTypes } }) => {
     type MoltinProduct implements Node {
       path: String!
     }
-    type MoltinCollection implements Node {
+    type MoltinCategory implements Node {
       path: String!
     }
-    type MoltinCategory implements Node {
+    type MoltinCollection implements Node {
       path: String!
     }
     type MoltinBrand implements Node {
@@ -51,50 +51,36 @@ exports.createResolvers = ({ createResolvers }, options) => {
 }
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  // Get the below from plugin options later
-  const productsPath = 'products'
-  const categoriesPath = 'categories'
-  const collectionsPath = 'collections'
-  const brandsPath = 'brands'
-
   const pages = await graphql(`
     {
       allProducts: allMoltinProduct {
-        edges {
-          node {
-            id
-            path
-          }
+        nodes {
+          id
+          path
         }
       }
       allCategories: allMoltinCategory {
-        edges {
-          node {
-            id
-            path
-          }
+        nodes {
+          id
+          path
         }
       }
       allCollections: allMoltinCollection {
-        edges {
-          node {
-            id
-            path
-          }
+        nodes {
+          id
+          path
         }
       }
       allBrands: allMoltinBrand {
-        edges {
-          node {
-            id
-            path
-          }
+        nodes {
+          id
+          path
         }
       }
     }
   `)
 
-  pages.data.allProducts.edges.forEach(({ node: { id, path } }) => {
+  pages.data.allProducts.nodes.forEach(({ id, path }) => {
     createPage({
       path,
       component: require.resolve(`./src/templates/ProductPage.js`),
@@ -104,7 +90,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     })
   })
 
-  pages.data.allCategories.edges.forEach(({ node: { id, path } }) => {
+  pages.data.allCategories.nodes.forEach(({ id, path }) => {
     createPage({
       path,
       component: require.resolve(`./src/templates/CategoryPage.js`),
@@ -114,7 +100,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     })
   })
 
-  pages.data.allCollections.edges.forEach(({ node: { id, path } }) => {
+  pages.data.allCollections.nodes.forEach(({ id, path }) => {
     createPage({
       path,
       component: require.resolve(`./src/templates/CollectionPage.js`),
@@ -124,7 +110,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     })
   })
 
-  pages.data.allBrands.edges.forEach(({ node: { id, path } }) => {
+  pages.data.allBrands.nodes.forEach(({ id, path }) => {
     createPage({
       path,
       component: require.resolve(`./src/templates/BrandPage.js`),
@@ -135,22 +121,22 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   })
 
   createPage({
-    path: productsPath,
+    path: 'products',
     component: require.resolve(`./src/templates/ProductsPage.js`),
   })
 
   createPage({
-    path: categoriesPath,
+    path: 'categories',
     component: require.resolve(`./src/templates/CategoriesPage.js`),
   })
 
   createPage({
-    path: collectionsPath,
+    path: 'collections',
     component: require.resolve(`./src/templates/CollectionsPage.js`),
   })
 
   createPage({
-    path: brandsPath,
+    path: 'brands',
     component: require.resolve(`./src/templates/BrandsPage.js`),
   })
 }
