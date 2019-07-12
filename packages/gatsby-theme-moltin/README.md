@@ -17,6 +17,7 @@ plugins: [
     resolve: `@moltin/gatsby-theme-moltin`,
     options: {
       clientId: '...',
+      // See additional options below
     },
   },
 ]
@@ -24,11 +25,9 @@ plugins: [
 
 ### Options
 
-You can configure the theme using the following options:
-
 | Option            | Default       | Required | Description                                        |
 | ----------------- | ------------- | -------- | -------------------------------------------------- |
-| `clientId`        | `null`        | _Yes_    | Your Moltin Client ID                              |
+| `clientId`        | `null`        | **Yes**  | Your Moltin Client ID                              |
 | `basePath`        | `/`           | No       | Useful if you wish to mount your store at `/store` |
 | `productsPath`    | `products`    | No       | Change the path to products                        |
 | `collectionsPath` | `collections` | No       | Change the path to collections                     |
