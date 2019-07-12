@@ -45,6 +45,12 @@ exports.createResolvers = ({ createResolvers }, options) => {
 }
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  // Get the below from plugin options later
+  const productsPath = 'products'
+  const categoriesPath = 'categories'
+  const collectionsPath = 'collections'
+  const brandsPath = 'brands'
+
   const pages = await graphql(`
     {
       allProducts: allMoltinProduct {
@@ -120,5 +126,25 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         id,
       },
     })
+  })
+
+  createPage({
+    path: productsPath,
+    component: require.resolve(`./src/templates/ProductsPage.js`),
+  })
+
+  createPage({
+    path: categoriesPath,
+    component: require.resolve(`./src/templates/CategoriesPage.js`),
+  })
+
+  createPage({
+    path: collectionsPath,
+    component: require.resolve(`./src/templates/CollectionsPage.js`),
+  })
+
+  createPage({
+    path: brandsPath,
+    component: require.resolve(`./src/templates/BrandsPage.js`),
   })
 }
