@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Brand from '../components/Collection'
+import BrandSection from '../components/BrandSection'
 
 const allBrandsQuery = graphql`
   query {
@@ -24,7 +24,7 @@ const allBrandsQuery = graphql`
 const AllBrandsPage = () => {
   const { brands } = useStaticQuery(allBrandsQuery)
 
-  return <React.Fragment>{brands.nodes.map(Brand)}</React.Fragment>
+  return <React.Fragment>{brands.nodes.map(BrandSection)}</React.Fragment>
 }
 
 export default AllBrandsPage

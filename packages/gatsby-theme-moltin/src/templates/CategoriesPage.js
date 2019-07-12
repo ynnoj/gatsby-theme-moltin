@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Category from '../components/Collection'
+import CategorySection from '../components/CategorySection'
 
 const allCategoriesQuery = graphql`
   query {
@@ -24,7 +24,9 @@ const allCategoriesQuery = graphql`
 const AllCategoriesPage = () => {
   const { categories } = useStaticQuery(allCategoriesQuery)
 
-  return <React.Fragment>{categories.nodes.map(Category)}</React.Fragment>
+  return (
+    <React.Fragment>{categories.nodes.map(CategorySection)}</React.Fragment>
+  )
 }
 
 export default AllCategoriesPage

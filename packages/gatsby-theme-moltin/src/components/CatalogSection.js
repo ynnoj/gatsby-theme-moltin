@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import ProductGrid from '../components/ProductGrid'
+import ProductGrid from './ProductGrid'
 
-const Collection = ({ id, path, name, description, products }) => {
+const CatalogSection = ({ id, path, name, description, products }) => {
   return (
     <section key={id}>
       <h2>
         <Link to={path}>{name}</Link>
       </h2>
-
       <p>{description}</p>
+
       <ProductGrid products={products} />
     </section>
   )
 }
 
-export default Collection
+export default CatalogSection
