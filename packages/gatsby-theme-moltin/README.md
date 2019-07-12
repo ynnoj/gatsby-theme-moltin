@@ -16,9 +16,20 @@ plugins: [
   {
     resolve: `@moltin/gatsby-theme-moltin`,
     options: {
-      client_id: '...',
-      basePath: '/', // basePath: '/store'
+      clientId: '...',
+      // See additional options below
     },
   },
 ]
 ```
+
+### Options
+
+| Option            | Default       | Required | Description                                        |
+| ----------------- | ------------- | -------- | -------------------------------------------------- |
+| `clientId`        | `null`        | **Yes**  | Your Moltin Client ID                              |
+| `basePath`        | `/`           | No       | Useful if you wish to mount your store at `/store` |
+| `productsPath`    | `products`    | No       | Change the path to products                        |
+| `collectionsPath` | `collections` | No       | Change the path to collections                     |
+| `categoriesPath`  | `categories`  | No       | Change the path to categories                      |
+| `brandsPath`      | `brands`      | No       | Change the path to brands                          |

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "dev": "gatsby develop",
     "now-build": "yarn run build",
     "now-dev": "yarn run dev -p $PORT"
