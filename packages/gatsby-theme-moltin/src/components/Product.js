@@ -6,7 +6,7 @@ import ProductImage from './ProductImage'
 const Product = ({ id, path, name, mainImage }) => (
   <article key={id}>
     <Link to={path}>
-      <ProductImage src={mainImage} alt={name} title={product.name} />
+      <ProductImage src={mainImage} alt={name} title={name} />
     </Link>
 
     <Link to={path}>
