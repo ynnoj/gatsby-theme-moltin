@@ -21,6 +21,8 @@ module.exports = themeOptions => {
           path: path.join(__dirname, `src`, `pages`),
         },
       },
+      `gatsby-transformer-sharp`,
+      `gatsby-plugin-sharp`,
     ],
   }
 }

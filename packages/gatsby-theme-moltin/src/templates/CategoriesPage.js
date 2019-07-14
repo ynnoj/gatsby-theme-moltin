@@ -15,6 +15,13 @@ const allCategoriesQuery = graphql`
           name
           path
           id
+          mainImage {
+            childImageSharp {
+              fixed(width: 560) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
     }
