@@ -7,9 +7,16 @@ const allProductsQuery = graphql`
   query {
     products: allMoltinProduct {
       nodes {
-        id
         name
         path
+        id
+        mainImage {
+          childImageSharp {
+            fixed(width: 560) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }
