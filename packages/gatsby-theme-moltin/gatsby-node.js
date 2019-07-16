@@ -51,6 +51,7 @@ exports.createResolvers = ({ createResolvers }, options) => {
 }
 
 exports.createPages = async ({ graphql, actions: { createPage } }, options) => {
+  const basePath = options.basePath || '/'
   const {
     productsPath = 'products',
     collectionsPath = 'collections',
@@ -128,22 +129,22 @@ exports.createPages = async ({ graphql, actions: { createPage } }, options) => {
   })
 
   createPage({
-    path: productsPath,
+    path: path.join(basePath, productsPath),
     component: require.resolve(`./src/templates/ProductsPage.js`),
   })
 
   createPage({
-    path: categoriesPath,
+    path: path.join(basePath, categoriesPath),
     component: require.resolve(`./src/templates/CategoriesPage.js`),
   })
 
   createPage({
-    path: collectionsPath,
+    path: path.join(basePath, collectionsPath),
     component: require.resolve(`./src/templates/CollectionsPage.js`),
   })
 
   createPage({
-    path: brandsPath,
+    path: path.join(basePath, brandsPath),
     component: require.resolve(`./src/templates/BrandsPage.js`),
   })
 }
