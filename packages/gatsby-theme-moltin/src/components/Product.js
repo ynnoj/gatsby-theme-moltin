@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Styled } from 'theme-ui'
 
 import ProductImage from './ProductImage'
 
@@ -10,7 +11,7 @@ const Product = ({ id, path, name, mainImage }) => (
     </Link>
 
     <Link to={path}>
-      <h1>{name}</h1>
+      <Styled.h1>{name}</Styled.h1>
     </Link>
   </article>
 )

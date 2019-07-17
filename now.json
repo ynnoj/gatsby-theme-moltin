@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "name": "gatsby-theme-moltin",
   "alias": "gatsby-theme-moltin",
   "build": {
     "env": {
@@ -14,12 +16,10 @@
       }
     }
   ],
-  "name": "gatsby-theme-moltin",
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/example/$1"
     }
-  ],
-  "version": 2
+  ]
 }
