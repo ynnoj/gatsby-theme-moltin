@@ -2,7 +2,7 @@
   "alias": "gatsby-theme-moltin",
   "build": {
     "env": {
-      "MOLTIN_CLIENT_ID": "@gatsby-theme-moltin-moltin-client-id"
+      "GATSBY_MOLTIN_CLIENT_ID": "@gatsby-theme-moltin-moltin-client-id"
     }
   },
   "builds": [

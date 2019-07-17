@@ -5,7 +5,7 @@ module.exports = {
     {
       resolve: `@moltin/gatsby-theme-moltin`,
       options: {
-        clientId: process.env.MOLTIN_CLIENT_ID,
+        clientId: process.env.GATSBY_MOLTIN_CLIENT_ID,
       },
     },
   ],
