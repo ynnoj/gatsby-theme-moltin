@@ -2,3 +2,6 @@
   base = "/"
   command = "yarn build"
   publish = "example/public"
+
+[template.environment]
+  MOLTIN_CLIENT_ID = "Your Moltin client ID"
