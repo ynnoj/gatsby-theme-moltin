@@ -4,6 +4,10 @@
     "packages/*",
     "example"
   ],
+  "scripts": {
+    "build": "yarn workspace example build",
+    "dev": "yarn workspace example dev"
+  },
   "devDependencies": {
     "semantic-release": "15.13.18"
   },
