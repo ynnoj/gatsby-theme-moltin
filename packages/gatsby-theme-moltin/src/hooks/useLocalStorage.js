@@ -7,7 +7,6 @@ export default function useLocalStorage(key, initialValue) {
 
       return item ? item : initialValue
     } catch (error) {
-      console.log(error)
       return initialValue
     }
   })
