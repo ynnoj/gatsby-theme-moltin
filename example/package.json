@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@moltin/gatsby-theme-moltin": "*",
-    "gatsby": "2.13.23",
+    "gatsby": "2.13.25",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }
