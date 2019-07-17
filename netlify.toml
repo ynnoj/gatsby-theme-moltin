@@ -1,4 +1,4 @@
 [build]
-  base = "example"
-  command = "yarn build"
+  base = "/"
+  command = "yarn workspace example build"
   publish = "example/public"
