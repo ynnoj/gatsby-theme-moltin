@@ -1,8 +1,8 @@
-import React, { createContext, useReducer, useEffect } from 'react'
-import { MoltinClient, createCartIdentifier } from '@moltin/request'
+import React, { createContext, useContext, useReducer, useEffect } from 'react'
+import { createCartIdentifier } from '@moltin/request'
 
-import MoltinLocalStorageAdapter from '../utils/MoltinLocalStorageAdapter'
 import useLocalStorage from '../hooks/useLocalStorage'
+import MoltinContext from './MoltinContext'
 
 const SET_CART = 'SET_CART'
 const RESET_CART = 'RESET_CART'
@@ -18,6 +18,7 @@ const initialState = {
   promotionItems: [],
   taxItems: [],
   meta: null,
+  subTotal: null,
 }
 
 const reducer = (state, action) => {
@@ -56,15 +57,10 @@ const reducer = (state, action) => {
   }
 }
 
-const CartProvider = ({ clientId, children, ...props }) => {
-  const moltin = new MoltinClient({
-    client_id: clientId,
-    application: 'gatsby-theme-moltin',
-    storage: new MoltinLocalStorageAdapter(),
-  })
+const CartProvider = ({ children, ...props }) => {
+  const { moltin } = useContext(MoltinContext)
 
   const initialCartId = createCartIdentifier()
-
   const [state, dispatch] = useReducer(reducer, initialState)
   const [cartId, setCartId] = useLocalStorage('mcart', initialCartId)
   const isEmpty = state.count === 0
