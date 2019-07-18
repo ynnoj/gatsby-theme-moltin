@@ -6,6 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "predev": "yarn clean",
     "dev": "gatsby develop",
     "now-build": "yarn run build",
     "now-dev": "yarn run dev -p $PORT"
