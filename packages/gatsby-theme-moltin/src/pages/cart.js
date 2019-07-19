@@ -1,16 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import CartContext from '../context/CartContext'
+import CartItemList from '../components/CartItemList'
 
-const CartPage = () => {
-  const { isEmpty, items, meta } = useContext(CartContext)
-
-  return (
-    <React.Fragment>
-      <pre>{JSON.stringify({ items, meta }, null, 2)}</pre>
-      {isEmpty && <p>The cart is empty</p>}
-    </React.Fragment>
-  )
-}
+const CartPage = () => <CartItemList />
 
 export default CartPage
