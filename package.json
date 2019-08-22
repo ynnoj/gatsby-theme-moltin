@@ -9,7 +9,7 @@
     "dev": "yarn workspace example dev"
   },
   "devDependencies": {
-    "semantic-release": "15.13.18"
+    "semantic-release": "15.13.24"
   },
   "release": {
     "plugins": [
